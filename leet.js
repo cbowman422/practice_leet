@@ -23,6 +23,7 @@ var lengthOfLongestSubstring = function(s) {
        count = count + 1
            //console.log(array[j] + " " + j + " " + s[i] + " " + i)
            
+           
            array2.push(i)
            array2.push(j)
            // console.log(array2)
