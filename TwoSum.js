@@ -2,15 +2,20 @@
 
 
 var twoSum = function(nums, target) {
-  let arry = []
-  for(let i=0; i < nums.length; i++){
-      for(let j=0; j < nums.length; j++){
-          if (nums[i] + nums[j] === target && arry.length < 2 && i !== j){
-              arry.push(i,j)
-          } 
-      }
+  
+  const indices = {};
+
+  for(let i = 0; i < nums.length; i++){
+   indices[nums[i]] = i;
   }
-  return arry
+
+  for(let i = 0; i < nums.length; i++){
+    const complement = target - nums[i];
+
+    if( indices[complement] !== undefined && i !== indices[complement]){
+      return [i, indices[complement]]
+    }
+   }
 };
 
 console.log(twoSum([1,2,3,4,5],6));
