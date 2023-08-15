@@ -33,6 +33,7 @@ var lengthOfLongestSubstring = function(s) {
              len = array2[0] - array2[1]
              console.log(len)
            }
+
        
       }
      }
