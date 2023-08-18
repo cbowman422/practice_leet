@@ -1,36 +1,41 @@
 
+// var twoSum = function(nums, target) {
+
+//   for( i = 0 ; i < nums.length ; i++){
+//     for( j = 0 ; j < nums.length ; j++){
+//       if ( nums[i] + nums[j] === target && i !== j){
+//         return(i,j)
+
+//       }
+    
+//     }
+//   }
+
+// };
 
 
 var twoSum = function(nums, target) {
-  
-  const indices = {};
 
-  for(let i = 0; i < nums.length; i++){
-   indices[nums[i]] = i;
-   console.log(indices)
+ // define an object
+  let object = {};
+  let arry = [];
+
+ // Set the obbject variables to the values of the array, and have the object values be set to the array indecis 
+  for (i = 0; i < nums.length ; i++){
+    object[nums[i]] = i
   }
 
-  for(let i = 0; i < nums.length; i++){
-    const complement = target - nums[i];
-    console.log(indices[complement])
+ // Set a variable that is equal to the target - the array values
+  for (let i = 0; i < nums.length; i++){
+        const numPair = target - nums[i];
 
-    if( indices[complement] !== undefined && i !== indices[complement]){
-      return [i, indices[complement]]
-    }
-   }
-};
+  // if numPair index of the array is in the object and is defined, and also not the initial iterator, return the iterator and the index value
+  if(object[numPair] !== undefined && object[numPair] !== i){
+    arry.push(i, object[numPair]);
+    return(arry)
+  }    
+  } 
+}
 
-console.log(twoSum([9,3,3,4,5],6));
 
-
-var twoSum = function(nums, target) {
-  let arry = []
-  for(let i=0; i < nums.length; i++){
-      for(let j=0; j < nums.length; j++){
-          if (nums[i] + nums[j] === target && arry.length < 2 && i !== j){
-              arry.push(i,j)
-          } 
-      }
-  }
-  return arry
-};
+twoSum([1,2,3,4,6], 9);
